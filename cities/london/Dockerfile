@@ -1,5 +1,3 @@
-cities/london/Dockerfile
-
 FROM python:3.10
 WORKDIR /app
 COPY app.py .
