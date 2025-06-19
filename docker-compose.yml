@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+ kyiv:
+  build: ./cities/kyiv
+ london:
+  build: ./cities/london
+ berlin:
+  build: ./cities/berlin
+ tokyo:
+  build: ./cities/tokyo
+ ottawa:
+  build: ./cities/ottawa
+ canberra:
+  build: ./cities/canberra
+ cairo:
+  build: ./cities/cairo
+ washington:
+  build: ./cities/washington
+ web:
+  build: ./webserver
+  ports:
+   - "8080:80"
+  depends_on:
+   - kyiv
+   - london
+   - berlin
+   - tokyo
+   - ottawa
+   - canberra
+   - cairo
+   - washington
+ trivy:
+  build: ./security
+  volumes:
+   - /var/run/docker.sock:/var/run/docker.sock
